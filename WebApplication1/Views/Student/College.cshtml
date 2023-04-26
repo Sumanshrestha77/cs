@@ -1,0 +1,53 @@
+﻿@model IEnumerable<WebApplication1.Models.CollegeModel>
+
+@{
+    ViewData["Title"] = "College";
+}
+
+<h1>College</h1>
+
+<p>
+    <a asp-action="AddCollege">Add College</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CollegeId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CollegeName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.University)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CollegeId)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CollegeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>   
+                <td>
+                    @Html.DisplayFor(modelItem => item.University)
+                </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.CollegeId}) |
+                @Html.ActionLink(" Show Details", "Details", new { id=item.CollegeId}) |
+                @Html.ActionLink("Delete Entry", "Delete", new { id=item.CollegeId})
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
